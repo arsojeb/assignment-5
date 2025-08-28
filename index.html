@@ -26,15 +26,15 @@
       </div>
       <div class="font-bold flex gap-[20px]">
         <div class="flex justify-center items-center gap-[10px] bg-gray-200 w-[123px] h-[52px] rounded-full">
-          <p>0</p>
+          <p id="heart-count">0</p>
           <img src="./assets/heart.png" class="h-[30px] w-[30px]" alt="">
         </div>
         <div class="flex justify-center items-center gap-[10px] bg-gray-200 w-[123px] h-[52px] rounded-full">
-          <p>100</p>
+          <p id="coin-count">100</p>
           <img src="./assets/coin.png" class="h-[24px] w-[24px]" alt="">
         </div>
         <div class="flex justify-center items-center gap-[10px] bg-[#00A63E] text-white w-[123px] h-[52px] rounded-full">
-          <p>2 Copy</p>
+          <p>Copy: <span id="copy-count">0</span></p>
         </div>
       </div>
     </section>
@@ -60,7 +60,7 @@
         <div class="bg-[#FFE3E2] h-14 w-14 flex justify-center items-center rounded-xl">
           <img src="./assets/emergency.png" class="h-8 w-8" alt="">
         </div>
-        <img src="./assets/heart.png" class="h-6 w-6" alt="">
+        <img src="./assets/heart.png" class="h-6 w-6 heart-btn cursor-pointer" alt="">
       </div>
       <h1 class="font-bold text-xl mt-4">National Emergency Number</h1>
       <p class="text-gray-600">National Emergency</p>
@@ -78,7 +78,7 @@
         <div class="bg-[#FFE3E2] h-14 w-14 flex justify-center items-center rounded-xl">
           <img src="./assets/police.png" class="h-8 w-8" alt="">
         </div>
-        <img src="./assets/heart.png" class="h-6 w-6" alt="">
+        <img src="./assets/heart.png" class="h-6 w-6 heart-btn cursor-pointer" alt="">
       </div>
       <h1 class="font-bold text-xl mt-4">Police Helpline Number</h1>
       <p class="text-gray-600">Police</p>
@@ -96,7 +96,7 @@
         <div class="bg-[#FFE3E2] h-14 w-14 flex justify-center items-center rounded-xl">
           <img src="./assets/fire-service.png" class="h-8 w-8" alt="">
         </div>
-        <img src="./assets/heart.png" class="h-6 w-6" alt="">
+        <img src="./assets/heart.png" class="h-6 w-6 heart-btn cursor-pointer" alt="">
       </div>
       <h1 class="font-bold text-xl mt-4">Fire Service Number</h1>
       <p class="text-gray-600">Fire Service</p>
@@ -114,7 +114,7 @@
         <div class="bg-[#FFE3E2] h-14 w-14 flex justify-center items-center rounded-xl">
           <img src="./assets/ambulance.png" class="h-8 w-8" alt="">
         </div>
-        <img src="./assets/heart.png" class="h-6 w-6" alt="">
+        <img src="./assets/heart.png" class="h-6 w-6 heart-btn cursor-pointer" alt="">
       </div>
       <h1 class="font-bold text-xl mt-4">Ambulance Service</h1>
       <p class="text-gray-600">Ambulance</p>
@@ -132,7 +132,7 @@
         <div class="bg-[#FFE3E2] h-14 w-14 flex justify-center items-center rounded-xl">
           <img src="./assets/brac.png" class="h-8 w-8" alt="">
         </div>
-        <img src="./assets/heart.png" class="h-6 w-6" alt="">
+        <img src="./assets/heart.png" class="h-6 w-6 heart-btn cursor-pointer" alt="">
       </div>
       <h1 class="font-bold text-xl mt-4">Brac Helpline</h1>
       <p class="text-gray-600">Brac</p>
@@ -150,7 +150,7 @@
         <div class="bg-[#FFE3E2] h-14 w-14 flex justify-center items-center rounded-xl">
           <img src="./assets/Bangladesh-Railway.png" class="h-8 w-8" alt="">
         </div>
-        <img src="./assets/heart.png" class="h-6 w-6" alt="">
+        <img src="./assets/heart.png" class="h-6 w-6 heart-btn cursor-pointer" alt="">
       </div>
       <h1 class="font-bold text-xl mt-4">Bangladesh Railway Helpline</h1>
       <p class="text-gray-600">Bangladesh Railway</p>
@@ -158,7 +158,7 @@
       <button class="text-gray-600 bg-gray-300 px-4 py-1 rounded-2xl">Travel</button>
       <div class="flex gap-2 mt-4">
         <button class="copy-btn text-sm border border-gray-200 h-10 rounded-2xl flex-1" data-number="163"><i class="fa-solid fa-copy"></i> Copy</button>
-        <button class="call-btn text-sm bg-[#00A63E] h-10 rounded-2xl flex-1 text-white" data-number="163"><i class="fa-solid fa-phone"></i> Call</button>
+        <button class="call-btn text-sm bg-[#00A63E] h-10 rounded-2xl flex-1 text-white" data-number="Bangladesh Railway 163"><i class="fa-solid fa-phone"></i> Call</button>
       </div>
     </div>
   </div>
@@ -167,8 +167,10 @@
       <div class="col-span-3 shadow-md rounded-xl">
         <div class="flex justify-between m-[24px] items-center">
           <h1><i class="fa-regular fa-clock"></i> <span class="font-medium text-[20px]"> Call History</span></h1>
-          <button class="text-[16px] bg-[#00A63E] h-[52px] rounded-full w-[114px] text-white">Clear</button>
+          
+          <button  id="clear-history" class="text-[16px] bg-[#00A63E] h-[52px] rounded-full w-[114px] text-white">Clear</button>
         </div>
+        <ul id="call-history" class="px-6 pb-4"></ul>
       </div>
     </section>
   </main>
