@@ -1,3 +1,4 @@
+//main details
 document.addEventListener("DOMContentLoaded", () => {
   const heartCountEl = document.getElementById("heart-count"); 
   const coinCountEl = document.getElementById("coin-count");   
@@ -8,8 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let heartCount = parseInt(heartCountEl.textContent) || 0;
   let coinCount = parseInt(coinCountEl.textContent) || 100;
   let copyCount = parseInt(copyCountEl.textContent) || 0;
+
   // COPY button
-document.querySelectorAll(".copy-btn").forEach(btn => {
+  document.querySelectorAll(".copy-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const number = btn.getAttribute("data-number");
       navigator.clipboard.writeText(number)
@@ -26,17 +28,15 @@ document.querySelectorAll(".copy-btn").forEach(btn => {
   document.querySelectorAll(".call-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const number = btn.getAttribute("data-number");
-        
-
-      if (coinCount >= 20) {
-        coinCount -= 20;
-        coinCountEl.textContent = coinCount;
-      } else {
-        alert("Not enough coins!");
-        return;
-      }
-
       alert(`Calling ${number}...`);
+
+      if (coinCount > 0) {
+      coinCount -= 20;
+      if (coinCount < 0) coinCount = 0;
+      coinCountEl.textContent = coinCount;
+
+      alert(`Calling ${department} (${number})...`);
+
 
       // create call history block
       const div = document.createElement("div");
@@ -46,8 +46,9 @@ document.querySelectorAll(".copy-btn").forEach(btn => {
         <p class="text-gray-600 text-sm">Date: ${new Date().toLocaleString()}</p>
       `;
       historyListEl.prepend(div);
-    });
+    }
   });
+});
 
   // HEART button
   document.querySelectorAll(".heart-btn").forEach(btn => {
@@ -61,26 +62,4 @@ document.querySelectorAll(".copy-btn").forEach(btn => {
   clearHistoryBtn.addEventListener("click", () => {
     historyListEl.innerHTML = "";
   });
-});
-
-
-
-
-//copy button
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".copy-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      let number = btn.getAttribute("data-number");
-      navigator.clipboard.writeText(number);
-      alert(`Copied: ${number}`);
-    });
-  });
-  //call button
-  document.querySelectorAll(".call-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      let number = btn.getAttribute("data-number");
-      alert(`Calling ${number}...`);
-    });
-  });
-
 });
